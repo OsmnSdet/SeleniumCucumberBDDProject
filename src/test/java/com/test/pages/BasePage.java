@@ -14,6 +14,12 @@ public class BasePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
+    @FindBy(id = "myLocation-close-info")
+    public WebElement LocationTamamBtn;
+
+    @FindBy(linkText = "Tümünü Kabul Et")
+    public WebElement tumunuKabulEtBtn;
+
     @FindBy(css= "a.btnSignIn")
     public WebElement signInButton;
 

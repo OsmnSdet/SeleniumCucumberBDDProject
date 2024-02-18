@@ -35,6 +35,24 @@ public class n11Tasks_StepDefinitions {
     public void iNavigateTo(String URL) {
 
         Driver.getDriver().get(URL);
+
+        //when the page is loaded we want to click location pop up ok button
+        basePage.LocationTamamBtn.click();
+
+        /* ==> we want to click the accept all button
+         copy and paste this one from the element "copy JS path"
+         document.querySelector("body > efilli-layout-dynamic").shadowRoot.querySelector("#\\34 80698fc-e6ac-41bc-a722-51059b783200")
+        */
+
+        String str = " return document.querySelector(\"body > efilli-layout-dynamic\").shadowRoot.querySelector(\"#\\\\34 80698fc-e6ac-41bc-a722-51059b783200\")";
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+
+        WebElement acceptAllButton = (WebElement) js.executeScript(str);
+        acceptAllButton.click();
+
+
+
+
     }
 
     @When("user log in with Facebook")
@@ -53,7 +71,7 @@ public class n11Tasks_StepDefinitions {
         // after user clicking the facebook button opens new window so we are getting all of the windows
         for (String each : Driver.getDriver().getWindowHandles()) {
             Driver.getDriver().switchTo().window(each);
-            if (!Driver.getDriver().getTitle().equals("Giriş Yap - n11.com")){
+            if (!Driver.getDriver().getTitle().equals("Giriş Yap - n11.com")) {
                 break;
             }
         }
@@ -94,7 +112,7 @@ public class n11Tasks_StepDefinitions {
 
         // Scroll down to “Lacoste” link
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        js.executeScript("arguments[0].scrollIntoView(true)",parfumDeodorantPage.lacoste);
+        js.executeScript("arguments[0].scrollIntoView(true)", parfumDeodorantPage.lacoste);
 
         parfumDeodorantPage.lacoste.click();
     }
@@ -108,7 +126,7 @@ public class n11Tasks_StepDefinitions {
     @When("user add the product to {string}")
     public void user_add_the_product_to(String string) {
         seventhProductPage.addToCart.click();
-         productNameInPage = seventhProductPage.productName.getText();
+        productNameInPage = seventhProductPage.productName.getText();
     }
 
     @When("user navigate to {string}")
@@ -121,7 +139,7 @@ public class n11Tasks_StepDefinitions {
 
         String productNameInCart = cartPage.productInCart.getText();
 
-        Assert.assertEquals(productNameInPage,productNameInCart);
+        Assert.assertEquals(productNameInPage, productNameInCart);
     }
 
     @When("user write all the links at the footer to a text file")
@@ -172,7 +190,7 @@ public class n11Tasks_StepDefinitions {
 
         // Compare the webPageLinks list with the fileLinks list to ensure they match.
         for (WebElement webPageLink : webPageLinks) {
-          Assert.assertTrue(fileLinks.contains(webPageLink.getAttribute("href")));
+            Assert.assertTrue(fileLinks.contains(webPageLink.getAttribute("href")));
         }
         Assert.assertEquals(webPageLinks.size(), fileLinks.size());
 

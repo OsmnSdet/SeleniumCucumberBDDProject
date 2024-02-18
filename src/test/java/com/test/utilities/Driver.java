@@ -61,7 +61,7 @@ Creating a private constructor so we are closing access to the object of this cl
                 case "chrome":
                     driverPool.set(new ChromeDriver());
                     driverPool.get().manage().window().maximize();
-                 //   driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
