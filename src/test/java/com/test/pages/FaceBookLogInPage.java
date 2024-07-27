@@ -14,7 +14,7 @@ public class FaceBookLogInPage {
     @FindBy(css = "input#email")
     public WebElement facebookInputEmail;
 
-    @FindBy(css = "#pass")
+    @FindBy(css = "input#pass")
     public WebElement facebookInputPassword;
 
     @FindBy(css = "#loginbutton")
