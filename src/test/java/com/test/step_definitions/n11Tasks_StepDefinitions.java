@@ -44,7 +44,8 @@ public class n11Tasks_StepDefinitions {
          document.querySelector("body > efilli-layout-dynamic").shadowRoot.querySelector("#\\34 80698fc-e6ac-41bc-a722-51059b783200")
         */
 
-        String str = " return document.querySelector(\"body > efilli-layout-dynamic\").shadowRoot.querySelector(\"#\\\\34 80698fc-e6ac-41bc-a722-51059b783200\")";
+        String str = " return document.querySelector(\"body > efilli-layout-dynamic\").shadowRoot.querySelector(\"#\\\\31 d5d7aff-8ee1-4a98-9022-f0e29a5e471c\")";
+        //document.querySelector("body > efilli-layout-dynamic").shadowRoot.querySelector("#\\31 d5d7aff-8ee1-4a98-9022-f0e29a5e471c")
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
         WebElement acceptAllButton = (WebElement) js.executeScript(str);
@@ -71,7 +72,7 @@ public class n11Tasks_StepDefinitions {
         // after user clicking the facebook button opens new window so we are getting all of the windows
         for (String each : Driver.getDriver().getWindowHandles()) {
             Driver.getDriver().switchTo().window(each);
-            if (!Driver.getDriver().getTitle().equals("Giriş Yap - n11.com")) {
+            if (!Driver.getDriver().getTitle().equals("Giriş Yap - n11")) {
                 break;
             }
         }
